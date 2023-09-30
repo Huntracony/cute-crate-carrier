@@ -1,13 +1,13 @@
 extends RigidBody2D
 
 const FORCE_FACTOR = 15
-var grabbed = false
-var grabPos = Vector2()
-
 func _ready():
 	linear_damp = 1.0
 	angular_damp = 0.1
 	gravity_scale = 1.0
+
+var grabbed = false
+var grabPos = Vector2()
 
 func _physics_process(_delta):
 	if not grabbed: return
