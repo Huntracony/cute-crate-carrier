@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://rfmeawu77fex"]
+[gd_scene load_steps=4 format=3 uid="uid://rfmeawu77fex"]
 
-[ext_resource type="Script" path="res://Containers Container.gd" id="1_isegr"]
-[ext_resource type="PackedScene" path="res://Container_object.tscn" id="1_lx007"]
-[ext_resource type="Script" path="res://Magnet.gd" id="4_4664f"]
+[ext_resource type="Script" path="res://root.gd" id="1_k14tb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2hrv"]
 size = Vector2(1149.75, 131.5)
@@ -10,12 +8,8 @@ size = Vector2(1149.75, 131.5)
 [sub_resource type="CanvasTexture" id="CanvasTexture_cc87s"]
 specular_color = Color(0.647059, 0.290196, 0.380392, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wr1p0"]
-size = Vector2(64, 15)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_no4vd"]
-
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_k14tb")
 
 [node name="Dock" type="Node2D" parent="."]
 
@@ -31,27 +25,6 @@ position = Vector2(567.25, 482.25)
 scale = Vector2(1153.5, -130.5)
 texture = SubResource("CanvasTexture_cc87s")
 
-[node name="Containers_Container" type="Node2D" parent="."]
+[node name="ContainerContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(541, 247)
-script = ExtResource("1_isegr")
-
-[node name="Container" parent="Containers_Container" instance=ExtResource("1_lx007")]
-mass = 10.0
-
-[node name="Magnet" type="RigidBody2D" parent="."]
-position = Vector2(74, 146)
-script = ExtResource("4_4664f")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
-shape = SubResource("RectangleShape2D_wr1p0")
-
-[node name="Sprite2D" type="Sprite2D" parent="Magnet"]
-position = Vector2(-1.90735e-06, -1.43051e-06)
-scale = Vector2(64, 14)
-texture = SubResource("CanvasTexture_no4vd")
-
-[connection signal="mouse_entered" from="Containers_Container/Container" to="Containers_Container/Container" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Containers_Container/Container" to="Containers_Container/Container" method="_on_mouse_exited"]
-[connection signal="mouse_shape_entered" from="Containers_Container/Container" to="Containers_Container/Container" method="_on_mouse_shape_entered"]
-[connection signal="mouse_shape_exited" from="Containers_Container/Container" to="Containers_Container/Container" method="_on_mouse_shape_exited"]
