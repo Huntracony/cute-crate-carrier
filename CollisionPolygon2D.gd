@@ -1,9 +1,8 @@
-extends Sprite2D
+extends CollisionPolygon2D
 var basePosition = position.y
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_flip_h(true)
 	pass # Replace with function body.
 
 

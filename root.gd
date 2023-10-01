@@ -2,6 +2,8 @@ extends Node2D
 
 var crateScene = preload("res://crates/cat-crate.tscn")
 var trainScene = preload("res://Train_cart.tscn")
+var currentCrate = 'sera'
+
 
 var crateScenes = [
 	preload("res://crates/cat-crate.tscn"),
@@ -15,6 +17,8 @@ var crateScenes = [
 	preload("res://crates/sera-crate.tscn"),
 	preload("res://crates/sloth-crate.tscn")
 ]
+
+
 
 
 func _input(event):
