@@ -1,13 +1,7 @@
 extends Area2D
 
-var target = "tiger"
-
-func _physics_process(_delta):
-	pass
-#	print(haveWon())
-
 # TODO: check at rest and not being held
-func haveWon():
+func haveWon(target):
 	var targetCratesFound = 0
 	var targetCratesTotal = get_tree().get_nodes_in_group(target).size()
 	for bod in get_overlapping_bodies():
