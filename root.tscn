@@ -25,6 +25,6 @@ position = Vector2(567.25, 482.25)
 scale = Vector2(1153.5, -130.5)
 texture = SubResource("CanvasTexture_cc87s")
 
-[node name="ContainerContainer" type="Node2D" parent="."]
+[node name="CrateContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(541, 247)
