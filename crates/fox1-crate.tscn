@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0en73thwx1f5"]
+
+[ext_resource type="Script" path="res://crate.gd" id="1_eep8y"]
+[ext_resource type="Texture2D" uid="uid://dd6pxxlq6b2qy" path="res://crates/fox1-crate.png" id="2_1ylqq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0x672"]
+
+[node name="Crate" type="RigidBody2D"]
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_0x672")
+script = ExtResource("1_eep8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.10352e-05, -8)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_1ylqq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-46, -54, 53, -48, 47, 46, -53, 40)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
