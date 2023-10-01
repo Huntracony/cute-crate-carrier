@@ -3,7 +3,8 @@ extends Area2D
 var target = "tiger"
 
 func _physics_process(_delta):
-	print(haveWon())
+	pass
+#	print(haveWon())
 
 # TODO: check at rest and not being held
 func haveWon():

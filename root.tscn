@@ -1,12 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://rfmeawu77fex"]
+[gd_scene load_steps=11 format=3 uid="uid://rfmeawu77fex"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_k14tb"]
+[ext_resource type="Script" path="res://force-line.gd" id="2_dsta5"]
 [ext_resource type="PackedScene" uid="uid://bhe2posvt06ua" path="res://boat.tscn" id="2_xu3sg"]
 [ext_resource type="PackedScene" uid="uid://1f16hmdwkoid" path="res://dock.tscn" id="3_egqou"]
+[ext_resource type="Script" path="res://win-area.gd" id="3_rgiwx"]
 [ext_resource type="PackedScene" uid="uid://ckoa0m1jy3jsy" path="res://train_head.tscn" id="4_1msqe"]
 [ext_resource type="Script" path="res://CartContainer.gd" id="5_1t2ft"]
-[ext_resource type="Script" path="res://force-line.gd" id="2_dsta5"]
-[ext_resource type="Script" path="res://win-area.gd" id="3_rgiwx"]
 
 [sub_resource type="Gradient" id="Gradient_umq7s"]
 colors = PackedColorArray(0, 0.266667, 1, 0.709804, 0, 1, 0.45098, 0.67451)
@@ -16,7 +16,7 @@ gradient = SubResource("Gradient_umq7s")
 width = 242
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6h1dg"]
-size = Vector2(322, 516.5)
+size = Vector2(1037, 647)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_k14tb")
@@ -62,5 +62,5 @@ script = ExtResource("2_dsta5")
 script = ExtResource("3_rgiwx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
-position = Vector2(1018, 249.75)
+position = Vector2(1143.5, 7.5)
 shape = SubResource("RectangleShape2D_6h1dg")
