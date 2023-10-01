@@ -1,14 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://rfmeawu77fex"]
+[gd_scene load_steps=10 format=3 uid="uid://rfmeawu77fex"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_k14tb"]
+[ext_resource type="PackedScene" uid="uid://bhe2posvt06ua" path="res://boat.tscn" id="2_xu3sg"]
+[ext_resource type="PackedScene" uid="uid://1f16hmdwkoid" path="res://dock.tscn" id="3_egqou"]
+[ext_resource type="PackedScene" uid="uid://ckoa0m1jy3jsy" path="res://train_head.tscn" id="4_1msqe"]
+[ext_resource type="Script" path="res://CartContainer.gd" id="5_1t2ft"]
 [ext_resource type="Script" path="res://force-line.gd" id="2_dsta5"]
 [ext_resource type="Script" path="res://win-area.gd" id="3_rgiwx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2hrv"]
-size = Vector2(1149.75, 131.5)
+[sub_resource type="Gradient" id="Gradient_umq7s"]
+colors = PackedColorArray(0, 0.266667, 1, 0.709804, 0, 1, 0.45098, 0.67451)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_cc87s"]
-specular_color = Color(0.647059, 0.290196, 0.380392, 1)
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0aaj3"]
+gradient = SubResource("Gradient_umq7s")
+width = 242
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6h1dg"]
 size = Vector2(322, 516.5)
@@ -16,23 +21,33 @@ size = Vector2(322, 516.5)
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_k14tb")
 
-[node name="Dock" type="Node2D" parent="."]
+[node name="Boat" parent="." instance=ExtResource("2_xu3sg")]
+position = Vector2(107, 444)
+scale = Vector2(0.5, 0.5)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Dock"]
-position = Vector2(9, 97)
+[node name="Dock" parent="." instance=ExtResource("3_egqou")]
+position = Vector2(1247, 724)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dock/StaticBody2D"]
-position = Vector2(567.125, 481.75)
-shape = SubResource("RectangleShape2D_p2hrv")
-
-[node name="Sprite2D" type="Sprite2D" parent="Dock/StaticBody2D"]
-position = Vector2(567.25, 482.25)
-scale = Vector2(1153.5, -130.5)
-texture = SubResource("CanvasTexture_cc87s")
+[node name="Train_head" parent="." instance=ExtResource("4_1msqe")]
+position = Vector2(1545, 467)
+scale = Vector2(2, 2)
 
 [node name="CrateContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(541, 247)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(703, 227)
+zoom = Vector2(0.6, 0.6)
+
+[node name="CartContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_1t2ft")
+
+[node name="Sea" type="Sprite2D" parent="."]
+position = Vector2(1115, 731)
+scale = Vector2(13.4174, 266.5)
+texture = SubResource("GradientTexture1D_0aaj3")
 
 [node name="ForceLine" type="Line2D" parent="."]
 unique_name_in_owner = true

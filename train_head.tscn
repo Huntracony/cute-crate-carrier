@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckoa0m1jy3jsy"]
+
+[ext_resource type="Texture2D" uid="uid://ccj6o2mebtp2r" path="res://textures/train_first_transparent.png" id="1_7oj1g"]
+
+[node name="Train_head" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1069, -435)
+polygon = PackedVector2Array(1094, 416, 1090, 416, 1088, 403, 1091, 401, 1091, 398, 1087, 395, 1081, 394, 1076, 396, 1074, 399, 1075, 402, 1079, 403, 1079, 416, 1070, 418, 1070, 418, 1066, 399, 1061, 397, 1049, 396, 1036, 398, 1031, 401, 1030, 407, 1034, 442, 1037, 447, 1031, 450, 1025, 458, 1023, 466, 1024, 477, 1028, 485, 1108, 485, 1111, 480, 1111, 471, 1109, 463, 1104, 457, 1097, 453, 1104, 453, 1103, 433, 1107, 429, 1106, 422, 1102, 417, 1096, 414)
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 3.0458e-05)
+rotation = -3.14159
+scale = Vector2(0.1, -0.098)
+texture = ExtResource("1_7oj1g")
