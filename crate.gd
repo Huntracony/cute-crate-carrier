@@ -27,7 +27,6 @@ func _input(event):
 func _on_input_event(_viewport, event, _shape_idx):
 	if not event is InputEventMouseButton: return
 	if not event.pressed or event.button_index != 1: return
-	print(event)
 	grabbed = true
 	gravity_scale = GRABBED_GRAVITY
 	grabPos = get_local_mouse_position()

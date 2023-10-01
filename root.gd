@@ -1,6 +1,5 @@
 extends Node2D
 
-var crateScene = preload("res://crates/cat-crate.tscn")
 var crateScenes = [
 	preload("res://crates/cat-crate.tscn"),
 	preload("res://crates/fox1-crate.tscn"),
