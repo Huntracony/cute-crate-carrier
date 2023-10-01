@@ -1,6 +1,8 @@
 extends Node2D
 
 var crateScene = preload("res://crates/cat-crate.tscn")
+var trainScene = preload("res://Train_cart.tscn")
+
 var crateScenes = [
 	preload("res://crates/cat-crate.tscn"),
 	preload("res://crates/fox1-crate.tscn"),
@@ -14,8 +16,12 @@ var crateScenes = [
 	preload("res://crates/sloth-crate.tscn")
 ]
 
+
 func _input(event):
 	if not event is InputEventMouseButton: return
+	if event.pressed and event.button_index == 1 && %CartContainer.get_child_count() < 3:
+		var new_train = trainScene.instantiate()
+		%CartContainer.add_child(new_train)
 	if not event.pressed or event.button_index != 2: return
 	var packedScene = crateScenes[ randi() % crateScenes.size() ]
 	var crate = packedScene.instantiate()

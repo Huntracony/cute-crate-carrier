@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://5wxvf8ueq4um"]
+
+[ext_resource type="Script" path="res://Train_cart.gd" id="1_53sld"]
+[ext_resource type="Texture2D" uid="uid://j5c85nht7w42" path="res://textures/cart_transparent.png" id="1_6806q"]
+
+[node name="Train_Cart" type="StaticBody2D"]
+script = ExtResource("1_53sld")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-961, -444)
+polygon = PackedVector2Array(925, 414, 958, 415, 998, 420, 1004, 422, 1007, 424, 1008, 432, 1005, 457, 1001, 468, 997, 471, 942, 475, 927, 475, 922, 474, 919, 472, 917, 465, 916, 440, 917, 425, 917, 420, 920, 415)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5.00018, -1.99997)
+scale = Vector2(0.0870856, 0.0969207)
+texture = ExtResource("1_6806q")
