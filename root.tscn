@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://rfmeawu77fex"]
+[gd_scene load_steps=5 format=3 uid="uid://rfmeawu77fex"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_k14tb"]
+[ext_resource type="Script" path="res://force-line.gd" id="2_dsta5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2hrv"]
 size = Vector2(1149.75, 131.5)
@@ -28,3 +29,12 @@ texture = SubResource("CanvasTexture_cc87s")
 [node name="CrateContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(541, 247)
+
+[node name="ForceLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 6.0
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("2_dsta5")

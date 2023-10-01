@@ -11,24 +11,34 @@ func _ready():
 
 var grabbed = false
 var grabPos = Vector2()
+signal crateHeld(heldFrom, draggedTo, intensity)
+signal crateReleased()
 
 func _physics_process(_delta):
 	if not grabbed: return
 	var globalGrabPos = to_global(grabPos)
-	var force = get_global_mouse_position() - globalGrabPos
-	var distance_length = force.length()
-	if distance_length > MAX_DISTANCE:
-		force = force.normalized() * MAX_DISTANCE
+	var toMouseVector = get_global_mouse_position() - globalGrabPos
+	var toMouseDistance = toMouseVector.length()
+	if toMouseDistance > MAX_DISTANCE:
+		toMouseVector = toMouseVector.normalized() * MAX_DISTANCE
+	var force = toMouseVector * FORCE_FACTOR
 	var offset = globalGrabPos - global_position
-#	print(force * FORCE_FACTOR)
-	apply_force(force * FORCE_FACTOR, offset)
+#	print(force)
+	apply_force(force, offset)
+	
+	var globalOffset = global_position + offset
+	crateHeld.emit(globalOffset, globalOffset + toMouseVector,
+			toMouseVector.length()/MAX_DISTANCE)
 
+# Mouse up anywhere
 func _input(event):
 	if not event is InputEventMouseButton: return
 	if event.pressed or event.button_index != 1: return
 	grabbed = false
 	gravity_scale = NORMAL_GRAVITY
+	crateReleased.emit()
 
+# Mouse down in hitbox
 func _on_input_event(_viewport, event, _shape_idx):
 	if not event is InputEventMouseButton: return
 	if not event.pressed or event.button_index != 1: return

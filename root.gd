@@ -19,4 +19,6 @@ func _input(event):
 	var packedScene = crateScenes[ randi() % crateScenes.size() ]
 	var crate = packedScene.instantiate()
 	crate.position = %CrateContainer.get_local_mouse_position()
+	crate.crateHeld.connect(%ForceLine.setLine)
+	crate.crateReleased.connect(%ForceLine.hide)
 	%CrateContainer.add_child(crate)
