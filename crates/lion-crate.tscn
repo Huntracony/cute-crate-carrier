@@ -9,6 +9,7 @@
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_0x672")
 script = ExtResource("1_yyjwq")
+metadata/crate_type = "lion"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6.10352e-05, -8)

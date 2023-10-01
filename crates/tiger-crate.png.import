@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://08s770vlgamf"
-path="res://.godot/imported/fox2-crate.png-f0f0f7ec503355256b3ccc9e3190d90f.ctex"
+uid="uid://kayqv3ye3x4h"
+path="res://.godot/imported/tiger-crate.png-439980f44518035d4a45398a256dd53c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://crates/fox2-crate.png"
-dest_files=["res://.godot/imported/fox2-crate.png-f0f0f7ec503355256b3ccc9e3190d90f.ctex"]
+source_file="res://crates/tiger-crate.png"
+dest_files=["res://.godot/imported/tiger-crate.png-439980f44518035d4a45398a256dd53c.ctex"]
 
 [params]
 
