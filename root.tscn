@@ -1,29 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://rfmeawu77fex"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_k14tb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2hrv"]
-size = Vector2(1149.75, 131.5)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_cc87s"]
-specular_color = Color(0.647059, 0.290196, 0.380392, 1)
+[ext_resource type="PackedScene" uid="uid://bhe2posvt06ua" path="res://boat.tscn" id="2_xu3sg"]
+[ext_resource type="PackedScene" uid="uid://1f16hmdwkoid" path="res://dock.tscn" id="3_egqou"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_k14tb")
 
-[node name="Dock" type="Node2D" parent="."]
+[node name="Boat" parent="." instance=ExtResource("2_xu3sg")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Dock"]
-position = Vector2(9, 97)
+[node name="StaticBody2D" parent="." instance=ExtResource("3_egqou")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dock/StaticBody2D"]
-position = Vector2(567.125, 481.75)
-shape = SubResource("RectangleShape2D_p2hrv")
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Dock/StaticBody2D"]
-position = Vector2(567.25, 482.25)
-scale = Vector2(1153.5, -130.5)
-texture = SubResource("CanvasTexture_cc87s")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 
 [node name="CrateContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
