@@ -9,6 +9,7 @@
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_0x672")
 script = ExtResource("1_iy7so")
+metadata/crate_type = "koala"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6.10352e-05, -8)

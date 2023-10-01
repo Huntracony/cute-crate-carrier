@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kayqv3ye3x4h"
-path="res://.godot/imported/cat-crate.png-33532c5d706509fdd4e69b280080cfb1.ctex"
+uid="uid://dd6pxxlq6b2qy"
+path="res://.godot/imported/red-panda-crate.png-9d9153dcd3328e320d87da707277cd13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://crates/cat-crate.png"
-dest_files=["res://.godot/imported/cat-crate.png-33532c5d706509fdd4e69b280080cfb1.ctex"]
+source_file="res://crates/red-panda-crate.png"
+dest_files=["res://.godot/imported/red-panda-crate.png-9d9153dcd3328e320d87da707277cd13.ctex"]
 
 [params]
 

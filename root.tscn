@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://rfmeawu77fex"]
+[gd_scene load_steps=12 format=3 uid="uid://rfmeawu77fex"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_k14tb"]
+[ext_resource type="Script" path="res://force-line.gd" id="2_dsta5"]
 [ext_resource type="PackedScene" uid="uid://bhe2posvt06ua" path="res://boat.tscn" id="2_xu3sg"]
 [ext_resource type="PackedScene" uid="uid://1f16hmdwkoid" path="res://dock.tscn" id="3_egqou"]
+[ext_resource type="Script" path="res://win-area.gd" id="3_rgiwx"]
 [ext_resource type="PackedScene" uid="uid://ckoa0m1jy3jsy" path="res://train_head.tscn" id="4_1msqe"]
 [ext_resource type="Script" path="res://CartContainer.gd" id="5_1t2ft"]
+[ext_resource type="Script" path="res://win-indicator.gd" id="8_06xmi"]
 
 [sub_resource type="Gradient" id="Gradient_umq7s"]
 colors = PackedColorArray(0, 0.266667, 1, 0.709804, 0, 1, 0.45098, 0.67451)
@@ -12,6 +15,9 @@ colors = PackedColorArray(0, 0.266667, 1, 0.709804, 0, 1, 0.45098, 0.67451)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_0aaj3"]
 gradient = SubResource("Gradient_umq7s")
 width = 242
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h1dg"]
+size = Vector2(1027, 707)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_k14tb")
@@ -43,3 +49,37 @@ script = ExtResource("5_1t2ft")
 position = Vector2(1115, 731)
 scale = Vector2(13.4174, 266.5)
 texture = SubResource("GradientTexture1D_0aaj3")
+
+[node name="ForceLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 6.0
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("2_dsta5")
+
+[node name="WinArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_rgiwx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
+position = Vector2(1148.5, 37.5)
+shape = SubResource("RectangleShape2D_6h1dg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 89.0
+offset_bottom = 44.0
+text = "Target: all tigers
+Winning?"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 100.0
+offset_top = 46.0
+offset_right = 140.0
+offset_bottom = 69.0
+script = ExtResource("8_06xmi")
