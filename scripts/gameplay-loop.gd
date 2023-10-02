@@ -76,7 +76,8 @@ func onWin():
 	var secondsElapsed = float(Time.get_ticks_msec() - startTime)/1000
 	var timeScore = 100_000 / (secondsElapsed + 30.0)
 	var accuracyScore = float(cratesShipped)/float(totalCrates)
-	var combinedScore = timeScore * accuracyScore * accuracyScore
+	var completionBonus = 150 if accuracyScore == 1.0 else 0
+	var combinedScore = timeScore * accuracyScore * accuracyScore + completionBonus
 	%CratesShippedLabel.text = "%d/%d" % [cratesShipped, totalCrates]
 	%ScoreLabel.text = "%d" % combinedScore
 	%LevelNameLabel.text = levelName
