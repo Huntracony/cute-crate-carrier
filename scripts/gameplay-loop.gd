@@ -2,7 +2,7 @@ extends Node
 
 signal target_crate_type_changed(crateType : String)
 
-var typeTargetOrder : Array
+var remainingCrateTypes : Array
 var targetCrateType : String
 
 var totalCrates : int
@@ -34,13 +34,25 @@ func start():
 	cratesShipped = 0
 	startTime = Time.get_ticks_msec()
 	gameActive = true
-	typeTargetOrder = $/root/World.crateTypes.duplicate()
-	typeTargetOrder.shuffle()
+	remainingCrateTypes = $/root/World.crateTypes.duplicate()
 	nextTarget()
 
 func nextTarget():
-	if typeTargetOrder.is_empty(): return onWin()
-	targetCrateType = typeTargetOrder.pop_back()
+	var lowestTarget = ""
+	var lowestTargetHeight = -INF
+	for type in remainingCrateTypes:
+		var crates = get_tree().get_nodes_in_group(type)
+		if crates.is_empty(): continue
+		var crateHeights = 0.0
+		for cr in crates:
+			crateHeights += cr.position.y
+		crateHeights /= crates.size()
+		if crateHeights > lowestTargetHeight:
+			lowestTarget = type
+			lowestTargetHeight = crateHeights
+	if lowestTarget == "": return onWin()
+	targetCrateType = lowestTarget
+	remainingCrateTypes.erase(targetCrateType)
 	target_crate_type_changed.emit(targetCrateType)
 
 func clearTargetCrates():
