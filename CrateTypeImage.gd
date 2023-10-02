@@ -18,7 +18,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var crateType = %GameplayLoop.targetCrateType
 #	match c
 	texture = crateTextures[crateType]
