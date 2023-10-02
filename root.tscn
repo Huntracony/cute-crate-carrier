@@ -1,0 +1,170 @@
+[gd_scene load_steps=17 format=3 uid="uid://rfmeawu77fex"]
+
+[ext_resource type="Script" path="res://scripts/root.gd" id="1_wmcfp"]
+[ext_resource type="Script" path="res://scripts/gameplay-loop.gd" id="2_bcbrv"]
+[ext_resource type="PackedScene" uid="uid://bhe2posvt06ua" path="res://scenes/boat.tscn" id="3_0kmvy"]
+[ext_resource type="PackedScene" uid="uid://1f16hmdwkoid" path="res://scenes/dock.tscn" id="4_achx6"]
+[ext_resource type="PackedScene" uid="uid://ckoa0m1jy3jsy" path="res://scenes/train_head.tscn" id="5_ub3v0"]
+[ext_resource type="Script" path="res://scripts/cart-container.gd" id="6_ahyt0"]
+[ext_resource type="Script" path="res://scripts/force-line.gd" id="7_m5k75"]
+[ext_resource type="Script" path="res://scripts/win-area.gd" id="8_4dday"]
+[ext_resource type="Script" path="res://scripts/collision-disable-area.gd" id="9_idqc0"]
+[ext_resource type="Script" path="res://scripts/win-indicator.gd" id="10_cddbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lgo2"]
+size = Vector2(2515, 1994)
+
+[sub_resource type="Gradient" id="Gradient_umq7s"]
+colors = PackedColorArray(0, 0.266667, 1, 0.709804, 0, 1, 0.45098, 0.67451)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0aaj3"]
+gradient = SubResource("Gradient_umq7s")
+width = 242
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h1dg"]
+size = Vector2(1027, 707)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0r8gr"]
+size = Vector2(1221, 1400)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq108"]
+size = Vector2(682, 735)
+
+[node name="World" type="Node2D"]
+position = Vector2(0, -1000)
+script = ExtResource("1_wmcfp")
+
+[node name="GameplayLoop" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_bcbrv")
+
+[node name="PlayableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayableArea"]
+position = Vector2(729.5, -114)
+shape = SubResource("RectangleShape2D_1lgo2")
+debug_color = Color(0.588235, 0.537255, 0.309804, 0.054902)
+
+[node name="Boat" parent="." instance=ExtResource("3_0kmvy")]
+position = Vector2(107, 444)
+scale = Vector2(0.5, 0.5)
+
+[node name="Dock" parent="." instance=ExtResource("4_achx6")]
+position = Vector2(1247, 724)
+collision_layer = 0
+collision_mask = 0
+
+[node name="Train_head" parent="." instance=ExtResource("5_ub3v0")]
+position = Vector2(1545, 467)
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CrateContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(703, 227)
+zoom = Vector2(0.6, 0.6)
+
+[node name="CartContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_ahyt0")
+
+[node name="Sea" type="Sprite2D" parent="."]
+position = Vector2(1115, 731)
+scale = Vector2(13.4174, 266.5)
+texture = SubResource("GradientTexture1D_0aaj3")
+
+[node name="ForceLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 6.0
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("7_m5k75")
+
+[node name="WinArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+input_pickable = false
+script = ExtResource("8_4dday")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
+position = Vector2(1148.5, 37.5)
+shape = SubResource("RectangleShape2D_6h1dg")
+
+[node name="CollisionDisableArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+input_pickable = false
+script = ExtResource("9_idqc0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDisableArea"]
+position = Vector2(1239.5, 160)
+shape = SubResource("RectangleShape2D_0r8gr")
+debug_color = Color(0.835294, 0.333333, 0.513726, 0.227451)
+
+[node name="SaveArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SaveArea"]
+position = Vector2(87, 57.5)
+shape = SubResource("RectangleShape2D_yq108")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WrongCrateWarning" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -308.0
+offset_top = 38.0
+offset_right = -38.0
+offset_bottom = 64.0
+grow_horizontal = 0
+text = "The train won't accept other crates"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 143.0
+offset_bottom = 70.0
+text = "Target: "
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 83.0
+offset_top = 20.0
+offset_right = 235.0
+offset_bottom = 43.0
+script = ExtResource("10_cddbp")
+
+[node name="DebugUI" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/DebugUI"]
+layout_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -91.0
+offset_right = 118.0
+offset_bottom = -60.0
+text = " save level "
+
+[connection signal="target_crate_type_changed" from="GameplayLoop" to="CollisionDisableArea" method="setTarget"]
+[connection signal="target_crate_type_changed" from="GameplayLoop" to="CanvasLayer/Label2" method="_on_gameplay_loop_target_crate_type_changed"]
+[connection signal="body_exited" from="PlayableArea" to="GameplayLoop" method="onCrateLost"]
+[connection signal="body_entered" from="CollisionDisableArea" to="CollisionDisableArea" method="_on_body_entered"]
+[connection signal="body_exited" from="CollisionDisableArea" to="CollisionDisableArea" method="_on_body_exited"]
+[connection signal="pressed" from="CanvasLayer/DebugUI/Button" to="." method="saveLevel"]

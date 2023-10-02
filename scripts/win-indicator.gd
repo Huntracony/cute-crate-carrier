@@ -1,9 +1,4 @@
 extends Label
 
-var target = "tiger"
-
-func _process(_delta):
-	if %WinArea.haveWon(target):
-		text = "yes"
-	else:
-		text = "no"
+func _on_gameplay_loop_target_crate_type_changed(crateType):
+	text = crateType

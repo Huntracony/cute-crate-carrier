@@ -3,7 +3,7 @@ extends Area2D
 func _ready():
 	%WrongCrateWarning.hide()
 
-var target = "tiger"
+var target : String
 
 func setTarget(t):
 	target = t
