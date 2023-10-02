@@ -14,6 +14,7 @@ config/name="Cute Crate Carier"
 run/main_scene="res://root.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 boot_splash/show_image=false
+config/icon="res://textures/cute-crate-carrier-logo.png"
 
 [display]
 
