@@ -14,8 +14,7 @@ func start():
 	
 	# Remove any remaining crates
 	for crate in %CrateContainer.get_children():
-		%CrateContainer.remove_child(crate)
-		crate.queue_free()
+		crate.removeSelf()
 	print(%CrateContainer.get_children())
 	
 	# Load random level
@@ -40,8 +39,7 @@ func nextTarget():
 
 func clearTargetCrates():
 	for crate in get_tree().get_nodes_in_group(targetCrateType):
-		%CrateContainer.remove_child(crate)
-		crate.queue_free()
+		crate.removeSelf()
 		cratesShipped += 1
 
 func _physics_process(_delta):
@@ -50,6 +48,6 @@ func _physics_process(_delta):
 		nextTarget()
 
 func onCrateLost(crate):
+	if not crate.has_meta("crate_type"): return
 	cratesLost += 1
-	%CrateContainer.remove_child(crate)
-	crate.queue_free()
+	crate.removeSelf()

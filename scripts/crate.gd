@@ -46,3 +46,7 @@ func _on_input_event(_viewport, event, _shape_idx):
 	grabbed = true
 	gravity_scale = GRABBED_GRAVITY
 	grabPos = get_local_mouse_position()
+
+func removeSelf():
+	get_parent().remove_child(self)
+	queue_free()
