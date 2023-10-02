@@ -24,13 +24,13 @@ gradient = SubResource("Gradient_umq7s")
 width = 242
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6h1dg"]
-size = Vector2(1027, 707)
+size = Vector2(548, 707)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0r8gr"]
-size = Vector2(1221, 1400)
+size = Vector2(666, 1311)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yq108"]
-size = Vector2(682, 735)
+size = Vector2(763, 745)
 
 [node name="World" type="Node2D"]
 position = Vector2(0, -1000)
@@ -96,7 +96,7 @@ input_pickable = false
 script = ExtResource("8_4dday")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
-position = Vector2(1148.5, 37.5)
+position = Vector2(1193, 37.5)
 shape = SubResource("RectangleShape2D_6h1dg")
 
 [node name="CollisionDisableArea" type="Area2D" parent="."]
@@ -106,7 +106,7 @@ input_pickable = false
 script = ExtResource("9_idqc0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDisableArea"]
-position = Vector2(1239.5, 160)
+position = Vector2(1254, 115.5)
 shape = SubResource("RectangleShape2D_0r8gr")
 debug_color = Color(0.835294, 0.333333, 0.513726, 0.227451)
 
@@ -115,7 +115,7 @@ unique_name_in_owner = true
 input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SaveArea"]
-position = Vector2(87, 57.5)
+position = Vector2(289.5, 52.5)
 shape = SubResource("RectangleShape2D_yq108")
 
 [node name="Control" type="Control" parent="."]
