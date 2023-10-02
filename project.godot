@@ -15,6 +15,10 @@ run/main_scene="res://root.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 boot_splash/show_image=false
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [filesystem]
 
 import/blender/enabled=false
