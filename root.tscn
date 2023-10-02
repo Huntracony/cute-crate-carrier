@@ -1,10 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://rfmeawu77fex"]
+[gd_scene load_steps=17 format=3 uid="uid://rfmeawu77fex"]
 
 [ext_resource type="Script" path="res://scripts/root.gd" id="1_wmcfp"]
 [ext_resource type="Script" path="res://scripts/gameplay-loop.gd" id="2_bcbrv"]
 [ext_resource type="PackedScene" uid="uid://bhe2posvt06ua" path="res://scenes/boat.tscn" id="3_0kmvy"]
-[ext_resource type="Texture2D" uid="uid://dq50x2e5ue000" path="res://textures/background-sea.png" id="3_1r4by"]
-[ext_resource type="Texture2D" uid="uid://bn3fefy7okjnw" path="res://textures/background-land.png" id="4_5c3ej"]
 [ext_resource type="PackedScene" uid="uid://1f16hmdwkoid" path="res://scenes/dock.tscn" id="4_achx6"]
 [ext_resource type="PackedScene" uid="uid://ckoa0m1jy3jsy" path="res://scenes/train_head.tscn" id="5_ub3v0"]
 [ext_resource type="Script" path="res://scripts/cart-container.gd" id="6_ahyt0"]
@@ -48,16 +46,6 @@ collision_mask = 3
 position = Vector2(729.5, -114)
 shape = SubResource("RectangleShape2D_1lgo2")
 debug_color = Color(0.588235, 0.537255, 0.309804, 0.054902)
-
-[node name="BackgroundSea" type="Sprite2D" parent="."]
-position = Vector2(377, 225)
-scale = Vector2(0.844111, 0.844111)
-texture = ExtResource("3_1r4by")
-
-[node name="BackgroundLand" type="Sprite2D" parent="."]
-position = Vector2(1301, 220)
-scale = Vector2(0.841032, 0.841032)
-texture = ExtResource("4_5c3ej")
 
 [node name="Boat" parent="." instance=ExtResource("3_0kmvy")]
 position = Vector2(107, 444)
@@ -202,7 +190,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/WinScreen/VBoxContainer"]
 layout_mode = 2
-text = "You did it!"
+text = "You are the Cute Crate Carier!"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WinScreen/VBoxContainer"]
