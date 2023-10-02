@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rfmeawu77fex"]
+[gd_scene load_steps=19 format=3 uid="uid://rfmeawu77fex"]
 
 [ext_resource type="Script" path="res://scripts/root.gd" id="1_wmcfp"]
 [ext_resource type="Script" path="res://scripts/gameplay-loop.gd" id="2_bcbrv"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://scripts/win-area.gd" id="8_4dday"]
 [ext_resource type="Script" path="res://scripts/collision-disable-area.gd" id="9_idqc0"]
 [ext_resource type="Script" path="res://scripts/win-indicator.gd" id="10_cddbp"]
+[ext_resource type="Texture2D" uid="uid://dq6bxgdua6tju" path="res://crates/sera-crate.png" id="11_n4vfa"]
+[ext_resource type="Script" path="res://CrateTypeImage.gd" id="11_uvdkm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lgo2"]
 size = Vector2(2515, 1994)
@@ -49,7 +51,6 @@ debug_color = Color(0.588235, 0.537255, 0.309804, 0.054902)
 
 [node name="Boat" parent="." instance=ExtResource("3_0kmvy")]
 position = Vector2(107, 444)
-scale = Vector2(0.5, 0.5)
 
 [node name="Dock" parent="." instance=ExtResource("4_achx6")]
 position = Vector2(1247, 724)
@@ -163,6 +164,29 @@ offset_top = -54.0
 offset_right = 113.0
 offset_bottom = -23.0
 text = " save level "
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1000.0
+offset_right = 40.0
+offset_bottom = 1040.0
+
+[node name="CrateTypeImage" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.964
+anchor_top = -1.704
+anchor_right = 1.417
+anchor_bottom = -1.0
+offset_left = 1368.44
+offset_top = -790.84
+offset_right = 1897.32
+offset_bottom = -363.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_n4vfa")
+expand_mode = 1
+script = ExtResource("11_uvdkm")
 
 [connection signal="target_crate_type_changed" from="GameplayLoop" to="CollisionDisableArea" method="setTarget"]
 [connection signal="target_crate_type_changed" from="GameplayLoop" to="CanvasLayer/Label2" method="_on_gameplay_loop_target_crate_type_changed"]
