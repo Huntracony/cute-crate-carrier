@@ -43,7 +43,6 @@ collision_mask = 0
 
 [node name="CrateContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(541, 247)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(703, 227)

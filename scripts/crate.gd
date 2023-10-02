@@ -32,6 +32,7 @@ func _physics_process(_delta):
 
 # Mouse up anywhere
 func _input(event):
+	if not grabbed: return
 	if not event is InputEventMouseButton: return
 	if event.pressed or event.button_index != 1: return
 	grabbed = false
