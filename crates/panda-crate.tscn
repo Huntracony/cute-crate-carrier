@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c54urb70jujsh"]
 
-[ext_resource type="Script" path="res://crate.gd" id="1_c1xmj"]
+[ext_resource type="Script" path="res://scripts/crate.gd" id="1_c1xmj"]
 [ext_resource type="Texture2D" uid="uid://b0ynm30hq23x" path="res://crates/panda-crate.png" id="2_ccs18"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0x672"]

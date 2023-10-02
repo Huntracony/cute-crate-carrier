@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ckoa0m1jy3jsy"]
 
-[ext_resource type="Texture2D" uid="uid://ccj6o2mebtp2r" path="res://textures/train_first_transparent.png" id="1_7oj1g"]
+[ext_resource type="Texture2D" uid="uid://dvhu7u3436d8r" path="res://textures/train.png" id="1_mrrdm"]
 
 [node name="Train_head" type="StaticBody2D"]
 
@@ -11,6 +11,5 @@ disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 3.0458e-05)
-rotation = -3.14159
-scale = Vector2(0.1, -0.098)
-texture = ExtResource("1_7oj1g")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_mrrdm")

@@ -1,6 +1,6 @@
 extends Node2D
 
-var trainScene = preload("res://Train_cart.tscn")
+var trainScene = preload("res://scenes/train_cart.tscn")
 
 var crateScenes = [
 	preload("res://crates/fox-crate.tscn"),

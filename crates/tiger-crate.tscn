@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdepw6oifu2tl"]
 
-[ext_resource type="Script" path="res://crate.gd" id="1_iwoea"]
+[ext_resource type="Script" path="res://scripts/crate.gd" id="1_iwoea"]
 [ext_resource type="Texture2D" uid="uid://kayqv3ye3x4h" path="res://crates/tiger-crate.png" id="2_7jqmy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0x672"]

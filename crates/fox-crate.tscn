@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b86ks32pltjqc"]
 
-[ext_resource type="Script" path="res://crate.gd" id="1_0b8mq"]
+[ext_resource type="Script" path="res://scripts/crate.gd" id="1_0b8mq"]
 [ext_resource type="Texture2D" uid="uid://08s770vlgamf" path="res://crates/fox-crate.png" id="2_06irf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0x672"]
