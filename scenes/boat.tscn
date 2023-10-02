@@ -1,15 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhe2posvt06ua"]
+[gd_scene load_steps=3 format=3 uid="uid://bhe2posvt06ua"]
 
+[ext_resource type="Script" path="res://scenes/boat.gd" id="1_augf2"]
 [ext_resource type="Texture2D" uid="uid://bxutm1gqq7frr" path="res://textures/boat.png" id="1_bv5kt"]
 
-[node name="Boat" type="StaticBody2D"]
+[node name="Boat" type="RigidBody2D"]
 position = Vector2(250, 439)
-scale = Vector2(0.6, 0.6)
+gravity_scale = 0.0
+freeze = true
+script = ExtResource("1_augf2")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2(-0.8, 0.8)
+rotation = -3.14159
+scale = Vector2(0.48, -0.48)
 polygon = PackedVector2Array(-714, -134, -56, -214, 256, -218, 450, -184, 568, -143, 617, -102, 641, -48, 674, 171, 664, 406, 617, 552, 566, 597, -482, 627, -628, 607, -703, 558, -737, 444, -746, 239)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.48, 0.48)
 texture = ExtResource("1_bv5kt")

@@ -24,9 +24,10 @@ func _ready():
 
 func _input(event):
 	if not event is InputEventMouseButton: return
-	if event.pressed and event.button_index == 1 && %CartContainer.get_child_count() < 3:
-		var new_train = trainScene.instantiate()
-		%CartContainer.add_child(new_train)
+#	%GameplayLoop
+#	if event.pressed and event.button_index == 1 && %CartContainer.get_child_count() < 2:
+#		var new_train = trainScene.instantiate()
+#		%CartContainer.add_child(new_train)
 	
 	if not OS.is_debug_build(): return
 	if not event.pressed or event.button_index != 2: return

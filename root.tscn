@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rfmeawu77fex"]
+[gd_scene load_steps=21 format=3 uid="uid://rfmeawu77fex"]
 
 [ext_resource type="Script" path="res://scripts/root.gd" id="1_wmcfp"]
 [ext_resource type="Script" path="res://scripts/gameplay-loop.gd" id="2_bcbrv"]
@@ -6,10 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://1f16hmdwkoid" path="res://scenes/dock.tscn" id="4_achx6"]
 [ext_resource type="PackedScene" uid="uid://ckoa0m1jy3jsy" path="res://scenes/train_head.tscn" id="5_ub3v0"]
 [ext_resource type="Script" path="res://scripts/cart-container.gd" id="6_ahyt0"]
+[ext_resource type="PackedScene" uid="uid://5wxvf8ueq4um" path="res://scenes/train_cart.tscn" id="6_xwx1v"]
 [ext_resource type="Script" path="res://scripts/force-line.gd" id="7_m5k75"]
 [ext_resource type="Script" path="res://scripts/win-area.gd" id="8_4dday"]
 [ext_resource type="Script" path="res://scripts/collision-disable-area.gd" id="9_idqc0"]
 [ext_resource type="Script" path="res://scripts/win-indicator.gd" id="10_cddbp"]
+[ext_resource type="Texture2D" uid="uid://d1ogxwu8xdw0x" path="res://textures/Cloud.png" id="11_035bx"]
+[ext_resource type="Texture2D" uid="uid://dq6bxgdua6tju" path="res://crates/sera-crate.png" id="11_n4vfa"]
+[ext_resource type="Script" path="res://CrateTypeImage.gd" id="11_uvdkm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lgo2"]
 size = Vector2(2515, 1994)
@@ -48,8 +52,7 @@ shape = SubResource("RectangleShape2D_1lgo2")
 debug_color = Color(0.588235, 0.537255, 0.309804, 0.054902)
 
 [node name="Boat" parent="." instance=ExtResource("3_0kmvy")]
-position = Vector2(107, 444)
-scale = Vector2(0.5, 0.5)
+position = Vector2(276, 435)
 
 [node name="Dock" parent="." instance=ExtResource("4_achx6")]
 visible = false
@@ -62,6 +65,10 @@ position = Vector2(1545, 467)
 scale = Vector2(2, 2)
 collision_layer = 0
 collision_mask = 0
+
+[node name="Train_Cart" parent="." instance=ExtResource("6_xwx1v")]
+position = Vector2(1232, 452)
+scale = Vector2(2.5, 2.5)
 
 [node name="CrateContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -233,6 +240,50 @@ horizontal_alignment = 1
 [node name="NextLevelButton" type="Button" parent="CanvasLayer/WinScreen/VBoxContainer"]
 layout_mode = 2
 text = " Next level "
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1000.0
+offset_right = 40.0
+offset_bottom = 1040.0
+
+[node name="Cloud" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 1327.0
+offset_top = -941.0
+offset_right = 2567.0
+offset_bottom = -67.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_035bx")
+expand_mode = 1
+
+[node name="CrateTypeImage" type="TextureRect" parent="Control/Cloud"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.964
+anchor_top = -1.704
+anchor_right = 1.417
+anchor_bottom = -1.0
+offset_left = -885.36
+offset_top = 1725.96
+offset_right = -356.48
+offset_bottom = 2153.8
+rotation = -0.20944
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("11_n4vfa")
+expand_mode = 1
+script = ExtResource("11_uvdkm")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 1514.0
+offset_top = -684.0
+offset_right = 2754.0
+offset_bottom = 190.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("11_035bx")
+expand_mode = 1
+flip_h = true
 
 [connection signal="target_crate_type_changed" from="GameplayLoop" to="CollisionDisableArea" method="setTarget"]
 [connection signal="target_crate_type_changed" from="GameplayLoop" to="CanvasLayer/Label2" method="_on_gameplay_loop_target_crate_type_changed"]
