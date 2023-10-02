@@ -222,7 +222,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/WinScreen/VBoxContainer"]
 layout_mode = 2
-text = "You are the Cute Crate Carier!"
+text = "You are the Cute Crate Carrier!"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/WinScreen/VBoxContainer"]
